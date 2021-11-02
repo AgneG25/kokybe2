@@ -1,18 +1,47 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 
-public class HelloWorld {
+public class User {
 
-    public static void main(String[] args) {
+    private  int id ;
+    private String firstName;
+     private String lastName;
+     private int age;
+    private String profession;
+    private ArrayList<User> children;
 
-        // Creates a reader instance which takes
-        // input from standard input - keyboard
-        Scanner reader = new Scanner(System.in);
-        System.out.print("Enter a number: ");
+    public User(int id, String firstName, String lastName, int age) {
 
-        // nextInt() reads the next integer from the keyboard
-        int number = reader.nextInt();
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.profession = profession;
 
-        // println() prints the following line to the output screen
-        System.out.println("You entered: " + number);
+    }
+
+    public String getChildName(User child) {
+        if (!this.children.contains(child)) {
+            new Exception("Invalid argument!");
+        } else {
+            String name = null;
+            if (child.getFirstName() != null) {
+                name = child.getFirstName();
+            }
+            if (name == "Harry") {
+                name.replace('r', 'p');
+            }
+            if (name != null || name.length() > 0) {
+                name.concat(child.getLastName());
+            }
+        }
+        return this.getChildName(child);
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 }
